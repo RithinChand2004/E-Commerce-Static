@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Form 1 Submission</title>
+</head>
+<body>
+    <h1>Edit Submission</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+        <button onclick="location.href='{% url 'form1_list' %}'">Back</button>
+    </form>
+</body>
+</html>

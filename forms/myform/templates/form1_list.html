@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form 1 Submissions</title>
+</head>
+<body>
+    <h1>Form 1 Submissions</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Mobile Number</th>
+            <th>Hobbies</th>
+            <th>Actions</th>
+        </tr>
+        {% for submission in submissions %}
+        <tr>
+            <td>{{ submission.name }}</td>
+            <td>{{ submission.mobile_number }}</td>
+            <td>{{ submission.hobbies }}</td>
+            <td>
+                <a href="{% url 'edit_form1' submission.id %}">Edit</a>
+                <a href="{% url 'delete_form1' submission.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

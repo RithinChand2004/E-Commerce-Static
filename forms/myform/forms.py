@@ -1,10 +1,12 @@
 from django import forms
+from .models import Form1Submission, Form2Submission  # Import your models
 
-class Form1(forms.Form):
-    name = forms.CharField(label='Name', max_length=100)
-    mobile_number = forms.CharField(label='Mobile Number', max_length=15)
-    hobbies = forms.CharField(label='Hobbies', widget=forms.Textarea)
+class Form1(forms.ModelForm):
+    class Meta:
+        model = Form1Submission  # Link to the Form1Submission model
+        fields = ['name', 'mobile_number', 'hobbies']
 
-class Form2(forms.Form):
-    name = forms.CharField(label='Name', max_length=100)
-    subject_marks = forms.IntegerField(label='Subject Marks')
+class Form2(forms.ModelForm):
+    class Meta:
+        model = Form2Submission  # Link to the Form2Submission model
+        fields = ['name', 'subject_marks']
